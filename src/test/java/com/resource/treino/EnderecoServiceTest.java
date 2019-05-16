@@ -51,6 +51,7 @@ public class EnderecoServiceTest {
 
         when(enderecoService.buscarCep("05036-040")).thenReturn(viaCep);
 
+        Assert.assertNotNull(viaCep);
         Assert.assertEquals("05036-040", viaCep.getCep());
         Assert.assertEquals("Avenida Marquês de São Vicente", viaCep.getLogradouro());
         Assert.assertEquals("São Paulo", viaCep.getLocalidade());
