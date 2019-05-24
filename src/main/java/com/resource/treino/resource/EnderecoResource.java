@@ -2,6 +2,7 @@ package com.resource.treino.resource;
 
 import com.resource.treino.domain.EnderecoSoapResponse;
 import com.resource.treino.domain.EnderecoViaCepResponse;
+import com.resource.treino.domain.Item;
 import com.resource.treino.dto.response.EnderecoResponseDTO;
 import com.resource.treino.service.EnderecoService;
 import com.resource.treino.service.EnderecoServiceSoap;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -52,6 +54,12 @@ public class EnderecoResource {
         EnderecoResponseDTO responseDTO = translator.toResponse ( viaCepResponse );
 
         return ResponseEntity.status(200).body( responseDTO );
+    }
+
+    @GetMapping("/ordenar")
+    public void ordernar(@RequestBody List<Item> itens){
+
+        service.ordenar(itens);
     }
 
 }

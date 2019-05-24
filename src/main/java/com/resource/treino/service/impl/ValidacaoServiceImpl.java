@@ -15,11 +15,11 @@ public class ValidacaoServiceImpl implements ValidacaoService {
     @Override
     public void validarCep (String cep) {
 
-        int length = String.valueOf(cep).length();
+        String aux = cep.replace("-", "");
+        int length = String.valueOf(aux).length();
         if (length != 8) {
             throw new ResponseStatusException(HttpStatus.OK, "CEP_INVALIDO");
         }
-        //throw new ResponseStatusException(HttpStatus.OK, "CEP_CORRESONDENTE");
     }
 
     @Override
